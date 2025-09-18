@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import { UploadTool } from "@/components/upload-tool";
+import { PricingSection } from "@/components/pricing-section";
+import { AboutSection } from "@/components/about-section";
+import { ContactSection } from "@/components/contact-section";
 
 export default function HomePage() {
   return (
@@ -48,23 +51,9 @@ export default function HomePage() {
         <UploadTool />
       </section>
 
-      {/* Pricing placeholder */}
-      <section id="pricing" className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold tracking-tight">Pricing</h2>
-        <p className="mt-2 opacity-80">World-class SaaS style cards coming next.</p>
-      </section>
-
-      {/* About placeholder */}
-      <section id="about" className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold tracking-tight">About</h2>
-        <p className="mt-2 opacity-80">Modern storytelling with scroll animations coming next.</p>
-      </section>
-
-      {/* Contact placeholder */}
-      <section id="contact" className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold tracking-tight">Contact</h2>
-        <p className="mt-2 opacity-80">Form with floating labels and glowing borders coming next.</p>
-      </section>
+      <PricingSection />
+      <AboutSection />
+      <ContactSection />
     </main>
   );
 }

@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Upload, ImageIcon, Loader2, Download } from "lucide-react";
+import { postRemoveBackground } from "@/lib/api";
 
 function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -30,16 +31,11 @@ export function UploadTool() {
     setInputDataUrl(dataUrl);
     setIsLoading(true);
     try {
-      const res = await fetch("/api/remove_background", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: dataUrl, format: "PNG" }),
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `Request failed: ${res.status}`);
-      }
-      const json = (await res.json()) as { success?: boolean; image?: string; error?: string };
+      const json = (await postRemoveBackground({ image: dataUrl, format: "PNG" })) as {
+        success?: boolean;
+        image?: string;
+        error?: string;
+      };
       if (!json.image) throw new Error(json.error || "No image returned");
       setOutputDataUrl(json.image);
     } catch (e: any) {
