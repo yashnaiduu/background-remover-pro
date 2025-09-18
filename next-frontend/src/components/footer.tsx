@@ -16,8 +16,8 @@ export function Footer() {
             <a href="#contact" className="hover:opacity-100 hover:underline hover:underline-offset-4">Contact</a>
           </nav>
           <div className="flex items-center justify-end gap-4 sm:col-span-1">
-            <a href="https://github.com/yashnaiduu/background-remover-pro" target="_blank" rel="noreferrer" className="opacity-80 transition hover:opacity-100">GitHub</a>
-            <a href="#" className="opacity-80 transition hover:opacity-100">Twitter</a>
+            <a href="#pricing" className="opacity-80 transition hover:opacity-100">Plans</a>
+            <a href="#contact" className="opacity-80 transition hover:opacity-100">Contact</a>
           </div>
         </div>
       </div>

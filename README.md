@@ -2,9 +2,7 @@
 
 # Background Remover – World‑Class Light/Dark SaaS UI
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org) [![Tailwind](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![Flask](https://img.shields.io/badge/Flask-2.x-000?logo=flask)](https://flask.palletsprojects.com/) [![backgroundremover](https://img.shields.io/badge/Engine-backgroundremover-blueviolet)](https://github.com/nadermx/backgroundremover) [![MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-Remove image backgrounds with pixel‑perfect quality. Premium, responsive SaaS UI (light/dark) built with Next.js + Tailwind. AI powered by `backgroundremover` with `rembg` fallback.
+Remove image backgrounds with pixel‑perfect quality. Premium, responsive SaaS UI (light/dark), drag‑drop uploads, before/after preview, and one‑click download.
 
 [☕ Buy me a coffee](https://www.buymeacoffee.com/your_handle)
 
@@ -16,13 +14,12 @@ Remove image backgrounds with pixel‑perfect quality. Premium, responsive SaaS 
 - Drag & drop upload with glowing border and micro‑interactions
 - Before/After preview, one‑click download (PNG/JPG/WebP)
 - API proxy: Single origin at `http://localhost:3000` → Flask backend
-- AI engine: [`backgroundremover`](https://github.com/nadermx/backgroundremover) with configurable options and `rembg` fallback
+- AI engine with configurable options and fallback
 
 ## 🧱 Tech Stack
 
-- Next.js 15 (App Router), TailwindCSS v4, Framer Motion, Lucide Icons
+- Next.js App Router, TailwindCSS v4, Framer Motion, Lucide Icons
 - Flask API (`/api/remove_background`), Pillow
-- `backgroundremover` (U2Net family) and `rembg`
 
 ## 🚀 Quickstart
 
@@ -86,13 +83,13 @@ Response:
 - `next-frontend/src/components/theme-toggle.tsx`, `next-frontend/src/providers/theme-provider.tsx`
 - `next-frontend/src/components/navbar.tsx`, `next-frontend/src/components/footer.tsx`
 
-## 🧠 Engine Reference
+## 🧠 Notes
 
-- BackgroundRemover project: [`nadermx/backgroundremover`](https://github.com/nadermx/backgroundremover)
+- First run downloads the model to the user cache; subsequent runs are fast.
 
 ## 📣 Credits & License
 
-MIT © 2025. Engine credits to the respective authors. See LICENSE.
+MIT © 2025. See LICENSE.
 
 If this helped you, consider supporting: [Buy me a coffee](https://www.buymeacoffee.com/your_handle)
 
