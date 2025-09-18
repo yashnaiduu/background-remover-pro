@@ -1,0 +1,28 @@
+# Node
+next-frontend/node_modules
+next-frontend/.next
+next-frontend/.vercel
+next-frontend/.turbo
+next-frontend/.env*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.python-version
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+

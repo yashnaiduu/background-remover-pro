@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Design tokens using Tailwind v4 @theme. Map to CSS variables for runtime theme switching. */
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Radii and shadows for glass/neumorphism */
+  --radius-xl: 1.25rem;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent), 0 10px 40px color-mix(in oklab, var(--primary) 15%, transparent);
+}
+
+/* Light theme (default) */
+:root {
+  --background: #f9fafb; /* near white */
+  --surface: #ffffff; /* surfaces/cards */
+  --foreground: #111827; /* dark neutral */
+  --primary: #2563eb; /* blue */
+  --secondary: #7c3aed; /* purple */
+  --accent: #f59e0b; /* amber */
+}
+
+/* Dark theme (enabled via next-themes adding .dark to <html>) */
+.dark {
+  --background: #0f172a; /* deep slate navy */
+  --surface: #1e293b; /* cards/nav */
+  --foreground: #f1f5f9; /* light neutral */
+  --primary: #3b82f6; /* brighter blue */
+  --secondary: #a78bfa; /* soft purple */
+  --accent: #facc15; /* yellow pop */
+}
+
+/* Base styles */
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
+/* Neumorphism-ish soft shadow */
+.soft-shadow {
+  box-shadow: var(--shadow-soft);
+}
+
+/* Gradient accent border for CTAs */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  filter: blur(0.5px);
+}
