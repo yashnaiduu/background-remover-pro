@@ -31,15 +31,11 @@ export function UploadTool() {
     setInputDataUrl(dataUrl);
     setIsLoading(true);
     try {
-      const json = (await postRemoveBackground({ image: dataUrl, format: "PNG" })) as {
-        success?: boolean;
-        image?: string;
-        error?: string;
-      };
+      const json = await postRemoveBackground({ image: dataUrl, format: "PNG" });
       if (!json.image) throw new Error(json.error || "No image returned");
       setOutputDataUrl(json.image);
-    } catch (e: any) {
-      setError(e.message || String(e));
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e));
     } finally {
       setIsLoading(false);
     }
