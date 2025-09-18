@@ -1,20 +1,23 @@
 <div align="center">
 
-# Background Remover – World‑Class Light/Dark SaaS UI
+# ✂️ Background Remover – World‑Class Light/Dark SaaS UI
 
 Remove image backgrounds with pixel‑perfect quality. Premium, responsive SaaS UI (light/dark), drag‑drop uploads, before/after preview, and one‑click download.
 
-[☕ Buy me a coffee](https://www.buymeacoffee.com/your_handle)
+<a href="https://www.buymeacoffee.com/your_handle" target="_blank" rel="noreferrer">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="44" style="border-radius: 8px;" />
+  
+</a>
 
 </div>
 
 ## ✨ Features
 
-- Dual theme with animated toggle (sun/moon) and glassmorphism surfaces
-- Drag & drop upload with glowing border and micro‑interactions
-- Before/After preview, one‑click download (PNG/JPG/WebP)
-- API proxy: Single origin at `http://localhost:3000` → Flask backend
-- AI engine with configurable options and fallback
+- 🌗 Dual theme with animated toggle (sun/moon) and glassmorphism surfaces
+- 📤 Drag & drop upload with glowing border and micro‑interactions
+- 🔀 Before/After preview, one‑click download (PNG/JPG/WebP)
+- 🔁 API proxy: Single origin at `http://localhost:3000` → Flask backend
+- 🧠 AI engine with configurable options and fallback
 
 ## 🧱 Tech Stack
 
@@ -44,7 +47,7 @@ cd next-frontend && npm run dev
 open http://localhost:3000
 ```
 
-First run downloads the U2Net model to `~/.u2net/`. Subsequent runs are fast.
+First run downloads the model to `~/.u2net/`. Subsequent runs are fast.
 
 ## 🔌 API
 
