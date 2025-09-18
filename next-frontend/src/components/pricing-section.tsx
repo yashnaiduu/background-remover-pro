@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SquishyCard } from "@/components/squishy-card";
 
 const plans = [
   {
@@ -75,6 +76,9 @@ export function PricingSection() {
             </a>
           </motion.div>
         ))}
+      </div>
+      <div className="mt-8 flex justify-center">
+        <SquishyCard onBuy={() => alert("Redirect to payment provider for $30 one-time.")} />
       </div>
     </section>
   );

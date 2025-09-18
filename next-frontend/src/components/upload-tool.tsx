@@ -14,6 +14,8 @@ function fileToDataUrl(file: File): Promise<string> {
   });
 }
 
+import { useTrial } from "@/hooks/use-trial";
+
 export function UploadTool() {
   const [dragActive, setDragActive] = useState(false);
   const [inputDataUrl, setInputDataUrl] = useState<string | null>(null);
@@ -22,8 +24,14 @@ export function UploadTool() {
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
+  const { remaining, isExhausted, increment } = useTrial();
+
   const onFiles = useCallback(async (files: FileList | null) => {
     if (!files || !files[0]) return;
+    if (isExhausted) {
+      setError("Free trial exceeded. Please purchase to continue.");
+      return;
+    }
     const file = files[0];
     setError(null);
     setOutputDataUrl(null);
@@ -34,12 +42,13 @@ export function UploadTool() {
       const json = await postRemoveBackground({ image: dataUrl, format: "PNG" });
       if (!json.image) throw new Error(json.error || "No image returned");
       setOutputDataUrl(json.image);
+      increment();
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [increment, isExhausted]);
 
   const onDrop = useCallback(
     (e: React.DragEvent<HTMLLabelElement>) => {
@@ -63,6 +72,7 @@ export function UploadTool() {
     <div className="glass rounded-2xl p-6 soft-shadow">
       <h2 className="text-2xl font-semibold tracking-tight">Background Remover</h2>
       <p className="mt-2 opacity-80">Drag & drop an image or click to upload.</p>
+      <p className="mt-1 text-xs opacity-70">Free trial remaining: {remaining}</p>
 
       <label
         onDragOver={(e) => {
